@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>+1000 Sesiones de Entrenamientos de Fútbol - Biblioteca Digital Premium</title>
+    <script>
+      // Safe JSON.stringify wrapper to prevent circular structure serialization crashes on DOM/React objects
+      (function() {
+        var originalStringify = JSON.stringify;
+        JSON.stringify = function(value, replacer, space) {
+          var seen = new WeakSet();
+          return originalStringify(value, function(key, val) {
+            if (typeof val === 'object' && val !== null) {
+              if (seen.has(val)) {
+                return '[Circular]';
+              }
+              seen.add(val);
+              // Filter out React-specific dynamic fiber attributes on DOM nodes
+              if (key.startsWith && key.startsWith('__react')) {
+                return undefined;
+              }
+            }
+            if (replacer) {
+              return replacer(key, val);
+            }
+            return val;
+          }, space);
+        };
+      })();
+
+      window.pixelId = "6a355a4ac0426d6bda378b12";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
