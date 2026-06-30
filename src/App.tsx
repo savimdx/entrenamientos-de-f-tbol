@@ -313,11 +313,11 @@ export default function App() {
           </div>
 
           {/* Bonuses layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {BONUSES.map((bonus) => (
               <div
                 key={bonus.id}
-                className="bg-white border border-slate-100 rounded-[24px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-5 relative group"
+                className="bg-white border border-slate-100 rounded-[24px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-5 relative group w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)]"
               >
                 <div>
                   {/* Image container on top */}
