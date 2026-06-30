@@ -792,7 +792,7 @@ export default function App() {
                 ¿Tienes más dudas? Ponte en contacto con nuestro soporte en:
               </p>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-slate-800 tracking-tight break-all">
-                contacto@entrenamientosdefutbol.website
+                contacto@entrenamientosdefutbol.online
               </p>
             </div>
           </div>
