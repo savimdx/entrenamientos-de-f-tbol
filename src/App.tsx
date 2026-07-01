@@ -682,7 +682,7 @@ export default function App() {
                 </span>
               </div>
               <div className="flex items-baseline justify-center">
-                <span className="text-6xl sm:text-7xl font-black text-orange-500 font-mono tracking-tight">$9.90</span>
+                <span className="text-6xl sm:text-7xl font-black text-orange-500 font-mono tracking-tight">$7.90</span>
                 <span className="text-xl sm:text-2xl font-extrabold text-orange-500 ml-1.5 font-mono">USD</span>
               </div>
               <p className="text-[10px] sm:text-xs text-slate-400 font-semibold">
