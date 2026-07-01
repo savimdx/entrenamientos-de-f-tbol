@@ -797,8 +797,7 @@ export default function App() {
           <div className="mt-8 text-center space-y-6">
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <a
-                href="#precio-oferta"
-                onClick={handleScrollToOffer}
+                href="https://pay.hotmart.com/P106371037H?off=xm591rtn&checkoutMode=10"
                 className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-black px-8 py-4 rounded-xl text-sm uppercase tracking-wider transition-all shadow-[0_8px_24px_rgba(16,185,129,0.35)] flex items-center justify-center gap-2 hover:-translate-y-0.5 group border border-emerald-400 text-center"
               >
                 QUIERO ACCEDER AHORA
