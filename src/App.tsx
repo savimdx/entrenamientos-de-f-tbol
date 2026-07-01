@@ -683,13 +683,16 @@ export default function App() {
                   90% DTO.
                 </span>
               </div>
-              <div className="flex flex-col items-center justify-center">
-                <span className="text-4xl sm:text-5xl md:text-6xl font-black text-orange-500 font-mono tracking-tight">
+              <div className="flex items-baseline justify-center py-2">
+                <span className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-orange-500 font-mono tracking-tight drop-shadow-sm transition-all duration-300">
                   {formattedPrice}
+                </span>
+                <span className="text-2xl sm:text-3xl md:text-4xl font-black text-orange-500 ml-1.5 uppercase font-sans">
+                  usd
                 </span>
               </div>
               <p className="text-[10px] sm:text-xs text-slate-400 font-semibold">
-                (Oferta con varias formas de pago)
+                (Puede pagar en su moneda local)
               </p>
             </div>
 
