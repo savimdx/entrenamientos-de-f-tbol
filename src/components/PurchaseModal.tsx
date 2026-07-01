@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Lock, CreditCard, ChevronRight, CheckCircle, Download, BookOpen, Star } from 'lucide-react';
+import { useCurrency } from '../context/CurrencyContext';
 
 interface PurchaseModalProps {
   isOpen: boolean;
@@ -7,6 +8,7 @@ interface PurchaseModalProps {
 }
 
 export default function PurchaseModal({ isOpen, onClose }: PurchaseModalProps) {
+  const { formattedPrice, convertAndFormat } = useCurrency();
   const [formData, setFormData] = useState({ name: '', email: '', cardNum: '', cardDate: '', cardCvc: '' });
   const [paymentMethod, setPaymentMethod] = useState<'card' | 'paypal'>('card');
   const [status, setStatus] = useState<'idle' | 'processing' | 'success'>('idle');
@@ -63,7 +65,7 @@ export default function PurchaseModal({ isOpen, onClose }: PurchaseModalProps) {
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 my-5 space-y-2">
               <div className="flex justify-between items-center">
                 <span className="text-xs text-slate-700 font-medium">Pack +1000 Sesiones de Fútbol (Digital)</span>
-                <span className="text-xs text-slate-400 line-through">$99.00</span>
+                <span className="text-xs text-slate-400 line-through">{convertAndFormat(99)}</span>
               </div>
               <div className="flex justify-between items-center text-emerald-600">
                 <span className="text-xs font-semibold">Bono #1, #2, #3, #4 y #5 (Manuales Especiales)</span>
@@ -72,7 +74,7 @@ export default function PurchaseModal({ isOpen, onClose }: PurchaseModalProps) {
               <div className="h-[1px] bg-slate-200 my-2" />
               <div className="flex justify-between items-center font-bold">
                 <span className="text-sm text-slate-800">Total a Pagar hoy:</span>
-                <span className="text-lg text-amber-600 font-mono font-black">$7.90 USD</span>
+                <span className="text-lg text-amber-600 font-mono font-black">{formattedPrice}</span>
               </div>
             </div>
 

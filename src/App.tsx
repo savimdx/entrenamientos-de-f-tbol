@@ -28,6 +28,7 @@ import {
 import HeaderBanner from './components/HeaderBanner';
 import PurchaseModal from './components/PurchaseModal';
 import NotificationToast from './components/NotificationToast';
+import { useCurrency } from './context/CurrencyContext';
 
 // Static Data
 import {
@@ -65,6 +66,7 @@ const PRODUCT_IMAGES = [
 ];
 
 export default function App() {
+  const { formattedPrice, currencyCode, isConverting, convertAndFormat } = useCurrency();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
   const [timeLeft, setTimeLeft] = useState<number>(1800); // 30 minutes in seconds
@@ -308,7 +310,7 @@ export default function App() {
               Recibe hoy estos 5 Bonos Exclusivos (100% Gratis)
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Solo por adquirir la biblioteca de entrenamientos el día de hoy, te llevas de regalo cinco manuales metodológicos adicionales valorados en <strong className="text-amber-600">$153.00 USD</strong>.
+              Solo tienes que comprar la biblioteca de entrenamientos hoy mismo para recibir de regalo cinco manuales metodológicos adicionales de gran valor.
             </p>
           </div>
 
@@ -365,7 +367,7 @@ export default function App() {
                 <div className="border-t border-slate-100 pt-4 mt-6 flex justify-between items-end">
                   <div>
                     <span className="text-[10px] text-slate-400 block font-bold tracking-wider uppercase font-sans">VALOR ORIGINAL</span>
-                    <span className="text-sm font-bold text-red-500 line-through">${bonus.originalPrice} USD</span>
+                    <span className="text-sm font-bold text-red-500 line-through">{convertAndFormat(bonus.originalPrice)}</span>
                   </div>
                   <div className="text-right">
                     <span className="text-[10px] text-emerald-600 block font-bold tracking-wider uppercase font-sans">HOY PARA TI</span>
@@ -634,23 +636,23 @@ export default function App() {
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-4.5 h-4.5 text-orange-500 shrink-0 stroke-[3.5] mt-0.5" />
-                <span>Bono 1: 100 Ejercicios para Desarrollar la Velocidad en el Fútbol (Valorizado en $29)</span>
+                <span>Bono 1: 100 Ejercicios para Desarrollar la Velocidad en el Fútbol (Valorizado en {convertAndFormat(29)})</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-4.5 h-4.5 text-orange-500 shrink-0 stroke-[3.5] mt-0.5" />
-                <span>Bono 2: 100 Ejercicios con Balón para Desarrollar la Resistencia (Valorizado en $35)</span>
+                <span>Bono 2: 100 Ejercicios con Balón para Desarrollar la Resistencia (Valorizado en {convertAndFormat(35)})</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-4.5 h-4.5 text-orange-500 shrink-0 stroke-[3.5] mt-0.5" />
-                <span>Bono 3: 60 Ejercicios Físicos con Sólo un Pequeño Equipamiento (Valorizado en $24)</span>
+                <span>Bono 3: 60 Ejercicios Físicos con Sólo un Pequeño Equipamiento (Valorizado en {convertAndFormat(24)})</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-4.5 h-4.5 text-orange-500 shrink-0 stroke-[3.5] mt-0.5" />
-                <span>Bono 4: 50 Ejercicios Físicos con Balón en Fútbol (Valorizado en $20)</span>
+                <span>Bono 4: 50 Ejercicios Físicos con Balón en Fútbol (Valorizado en {convertAndFormat(20)})</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-4.5 h-4.5 text-orange-500 shrink-0 stroke-[3.5] mt-0.5" />
-                <span>Bono 5: Manual Completo de Entrenamientos de Fútbol (Valorizado en $45)</span>
+                <span>Bono 5: Manual Completo de Entrenamientos de Fútbol (Valorizado en {convertAndFormat(45)})</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-4.5 h-4.5 text-orange-500 shrink-0 stroke-[3.5] mt-0.5" />
@@ -676,17 +678,18 @@ export default function App() {
             {/* Price section */}
             <div className="text-center space-y-1.5 mb-6">
               <div className="flex items-center justify-center gap-3 text-xs sm:text-sm font-bold text-slate-500">
-                <span>Antes <span className="text-red-500 font-extrabold line-through">$155</span></span>
+                <span>Antes <span className="text-red-500 font-extrabold line-through">{convertAndFormat(155)}</span></span>
                 <span className="bg-emerald-100 text-emerald-700 text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                   90% DTO.
                 </span>
               </div>
-              <div className="flex items-baseline justify-center">
-                <span className="text-6xl sm:text-7xl font-black text-orange-500 font-mono tracking-tight">$7.90</span>
-                <span className="text-xl sm:text-2xl font-extrabold text-orange-500 ml-1.5 font-mono">USD</span>
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-4xl sm:text-5xl md:text-6xl font-black text-orange-500 font-mono tracking-tight">
+                  {formattedPrice}
+                </span>
               </div>
               <p className="text-[10px] sm:text-xs text-slate-400 font-semibold">
-                (Puede pagar en su moneda local)
+                (Oferta con varias formas de pago)
               </p>
             </div>
 
