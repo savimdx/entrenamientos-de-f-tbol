@@ -119,6 +119,16 @@ export default function App() {
     setIsModalOpen(true);
   };
 
+  const handleScrollToOffer = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById('precio-oferta');
+    if (element) {
+      const yOffset = -90; // stop 90px above the element to show the top card border perfectly
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   const toggleFaq = (id: string) => {
     setExpandedFaq(expandedFaq === id ? null : id);
   };
@@ -676,7 +686,7 @@ export default function App() {
             <div className="h-[1px] bg-slate-100 max-w-md mx-auto my-6" />
 
             {/* Price section */}
-            <div className="text-center space-y-1.5 mb-6">
+            <div id="precio-oferta" className="text-center space-y-1.5 mb-6">
               <div className="flex items-center justify-center gap-3 text-xs sm:text-sm font-bold text-slate-500">
                 <span>Antes <span className="text-red-500 font-extrabold line-through">{convertAndFormat(155)}</span></span>
                 <span className="bg-emerald-100 text-emerald-700 text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
@@ -787,7 +797,8 @@ export default function App() {
           <div className="mt-8 text-center space-y-6">
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <a
-                href="https://pay.hotmart.com/P106371037H?off=xm591rtn&checkoutMode=10"
+                href="#precio-oferta"
+                onClick={handleScrollToOffer}
                 className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-black px-8 py-4 rounded-xl text-sm uppercase tracking-wider transition-all shadow-[0_8px_24px_rgba(16,185,129,0.35)] flex items-center justify-center gap-2 hover:-translate-y-0.5 group border border-emerald-400 text-center"
               >
                 QUIERO ACCEDER AHORA
