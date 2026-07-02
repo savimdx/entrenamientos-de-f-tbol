@@ -100,10 +100,10 @@ const fallbackRates: Record<string, number> = {
 };
 
 export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const originalPrice = 7.90;
+  const originalPrice = 9.90;
   const [currencyCode, setCurrencyCode] = useState<string>('USD');
-  const [convertedPrice, setConvertedPrice] = useState<number>(7.90);
-  const [formattedPrice, setFormattedPrice] = useState<string>('$7.90');
+  const [convertedPrice, setConvertedPrice] = useState<number>(9.90);
+  const [formattedPrice, setFormattedPrice] = useState<string>('$9.90');
   const [rate, setRate] = useState<number>(1);
   const [isConverting, setIsConverting] = useState<boolean>(false);
 
@@ -111,8 +111,8 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     async function loadCurrency() {
       setCurrencyCode('USD');
       setRate(1);
-      setConvertedPrice(7.90);
-      setFormattedPrice('$7.90');
+      setConvertedPrice(9.90);
+      setFormattedPrice('$9.90');
       setIsConverting(false);
     }
 
